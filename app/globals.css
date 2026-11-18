@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/*
+  Colour tokens. Light mode first, then dark mode values
+  that switch automatically with the computer's theme setting.
+  Each TCP flag has its own colour: SYN blue, SYN+ACK amber, ACK green.
+*/
+:root {
+  --paper: #eef2f6; /* page background */
+  --surface: #ffffff; /* cards */
+  --ink: #16202b; /* main text */
+  --muted: #5b6878; /* secondary text */
+  --line: #d3dae3; /* borders and cables */
+  --syn: #2563eb;
+  --synack: #b45309;
+  --ack: #047857;
+  --ok: #047857; /* "connection established" green */
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0e151d;
+    --surface: #16202b;
+    --ink: #e6edf3;
+    --muted: #93a1b1;
+    --line: #2b3746;
+    --syn: #60a5fa;
+    --synack: #fbbf24;
+    --ack: #34d399;
+    --ok: #34d399;
+    color-scheme: dark;
+  }
+}
+
+/* Make the tokens available as Tailwind classes: bg-surface, text-syn, stroke-ack, ... */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-syn: var(--syn);
+  --color-synack: var(--synack);
+  --color-ack: var(--ack);
+  --color-ok: var(--ok);
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Clear keyboard focus for every button and link */
+:focus-visible {
+  outline: 2px solid var(--syn);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Respect "reduce motion" for CSS transitions */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "tcp-handshake-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive TCP three-way handshake simulator (Data Communication mini project)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "framer-motion": "14.9.0",
+    "next": "16.4.5",
+    "react": "19.2.9",
+    "react-dom": "19.2.9"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3"
+  }
+}
